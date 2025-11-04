@@ -53,5 +53,14 @@ java -version || true
 echo "[INFO] Maven version:"
 mvn -v || true
 
-echo "[DONE] Dependencies installed. You can now run scripts/build.sh and scripts/run.sh"
+# Try to set system alternatives to Java 17 (non-fatal)
+JAVA17_HOME=$(ls -d /usr/lib/jvm/java-17-openjdk* 2>/dev/null | head -n1 || true)
+if [[ -n "${JAVA17_HOME:-}" ]]; then
+  echo "[INFO] Configuring alternatives to use Java 17 at ${JAVA17_HOME}"
+  ${SUDO} alternatives --install /usr/bin/java java "${JAVA17_HOME}/bin/java" 2 || true
+  ${SUDO} alternatives --set java "${JAVA17_HOME}/bin/java" || true
+  ${SUDO} alternatives --install /usr/bin/javac javac "${JAVA17_HOME}/bin/javac" 2 || true
+  ${SUDO} alternatives --set javac "${JAVA17_HOME}/bin/javac" || true
+fi
 
+echo "[DONE] Dependencies installed. You can now run scripts/build.sh and scripts/run.sh"

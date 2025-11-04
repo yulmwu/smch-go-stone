@@ -17,7 +17,6 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <javafx.version>17.0.8</javafx.version>
-        <maven.compiler.release>11</maven.compiler.release>
     </properties>
 
     <dependencies>
@@ -55,7 +54,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.11.0</version>
                 <configuration>
-                    <release>${maven.compiler.release}</release>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
@@ -94,4 +94,3 @@
         </plugins>
     </build>
 </project>
-
