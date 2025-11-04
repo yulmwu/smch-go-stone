@@ -1,0 +1,42 @@
+services:
+  oracle:
+    image: gvenzl/oracle-xe:21-slim
+    platform: ${DOCKER_DB_PLATFORM:-}
+    environment:
+      - ORACLE_PASSWORD=oracle
+      - ORACLE_DATABASE=XEPDB1
+      - APP_USER=scott
+      - APP_USER_PASSWORD=1231
+    ports:
+      - "1521:1521"
+      - "5500:5500"
+    volumes:
+      - ./db/init:/container-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "echo 'select 1 from dual;' | sqlplus -s system/$${ORACLE_PASSWORD}@localhost:1521/$${ORACLE_DATABASE} > /dev/null 2>&1 || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 40
+
+  go-stone:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: go-stone:latest
+    # Optionally pin platform: linux/amd64 (Rocky) or linux/arm64 (Apple Silicon)
+    platform: ${DOCKER_PLATFORM:-}
+    depends_on:
+      oracle:
+        condition: service_healthy
+    environment:
+      # On macOS with XQuartz, set DISPLAY=host.docker.internal:0
+      # On Linux, DISPLAY is usually :0
+      - DISPLAY=${DISPLAY}
+      # App DB configuration for container run
+      - DB_URL=jdbc:oracle:thin:@oracle:1521/XEPDB1
+      - DB_USER=scott
+      - DB_PASSWORD=1231
+    volumes:
+      # Linux: share X11 socket; macOS+XQuartz uses TCP and this mount is ignored
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    # Use default CMD from Dockerfile (includes add-opens/exports for JFoenix)

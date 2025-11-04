@@ -18,35 +18,47 @@ public class ChatThread extends Thread {
         try {
             Class.forName(driver);
         } catch (ClassNotFoundException e) {
-            // ignore dialog for thread
+            // showError("Failed to load DB driver");
         }
     }
 
     public void run(){
         try {
             conn = DriverManager.getConnection(url, user, password);
+
             String quary = "select * from chat";
+
             PreparedStatement pstm = conn.prepareStatement(quary);
+
+            // FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
+
             while(true) {
                 try {
                     ResultSet rs = pstm.executeQuery();
+
                     @SuppressWarnings("unused")
                     String result = "";
+
                     while(rs.next()) {
                         String rs_nickname = rs.getString(3);
                         String rs_chat_time = rs.getString(4);
                         String rs_chat_text = rs.getString(5);
+
                         result += "[ " + rs_nickname + " ]  |  " + rs_chat_time + ":\n" + rs_chat_text + "\n\n";
                     }
-                    // UI update should be on FX thread if wired
+
+                    // ((Controller) application.Controller.getController()).mainChat.setText(result);
+                    // application.Controller.mainChat.setText(result);
+                    // Controller.this.mainChat.setText(result);
+                    // TODO: update UI binding later
+
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
         } catch (SQLException e) {
-            // ignore for background thread
+            // showError("DB connection error");
         }
     }
 }
-
