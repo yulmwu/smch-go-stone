@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:controller="application.Controller" fx:id="scene" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #FAFAFA;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox alignment="CENTER" spacing="20.0" layoutX="50.0" layoutY="60.0" prefWidth="300.0">
+         <children>
+            <Text text="Account Created!">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <JFXButton onAction="#scene_login" text="Go to Login" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
+

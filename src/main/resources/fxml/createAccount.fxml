@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:controller="application.Controller" fx:id="scene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="400.0" style="-fx-background-color: #FAFAFA;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane onMouseDragged="#dragged" onMousePressed="#pressed" prefHeight="50.0" prefWidth="400.0" style="-fx-background-color: #E6E6E6; -fx-border-color: #aaaaaa;">
+         <children>
+            <HBox>
+               <children>
+                  <Circle fill="#ff6a6a" onMouseClicked="#close" radius="9.0" stroke="#ae2828" strokeType="INSIDE">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
+                  <Circle fill="#e8d048" onMouseClicked="#min" radius="9.0" stroke="#c9a324" strokeType="INSIDE">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
+                  <Circle fill="#5cda69" onMouseClicked="#max" radius="9.0" stroke="#6fbc27" strokeType="INSIDE">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <Text layoutX="151.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GO" textAlignment="CENTER">
+         <font>
+            <Font size="65.0" />
+         </font>
+      </Text>
+      <Text layoutX="87.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STONE" textAlignment="CENTER">
+         <font>
+            <Font size="70.0" />
+         </font>
+      </Text>
+      <JFXTextField fx:id="createAccount_id" focusColor="#69a7fa" labelFloat="true" layoutX="75.0" layoutY="280.0" prefHeight="35.0" prefWidth="250.0" promptText=" ID" unFocusColor="#aaaaaa">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </JFXTextField>
+      <JFXPasswordField fx:id="createAccount_password" focusColor="#c65a27" labelFloat="true" layoutX="75.0" layoutY="340.0" prefHeight="35.0" prefWidth="250.0" promptText=" Password" unFocusColor="#aaaaaa">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </JFXPasswordField>
+      <JFXTextField fx:id="createAccount_realName" focusColor="#79b26b" labelFloat="true" layoutX="76.0" layoutY="400.0" prefHeight="35.0" prefWidth="250.0" promptText=" Real name" unFocusColor="#aaaaaa">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="createAccount_nickname" focusColor="#af83d3" labelFloat="true" layoutX="75.0" layoutY="460.0" prefHeight="35.0" prefWidth="250.0" promptText=" Nickname" unFocusColor="#aaaaaa">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="createAccount_email" focusColor="#ddc775" labelFloat="true" layoutX="75.0" layoutY="520.0" prefHeight="35.0" prefWidth="250.0" promptText=" E-mail" unFocusColor="#aaaaaa">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton onAction="#createAccount_submit" layoutX="75.0" layoutY="590.0" prefHeight="50.0" prefWidth="250.0" ripplerFill="#3cf093" style="-fx-border-color: #aaaaaa;" text="Submit">
+         <font>
+            <Font size="13.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton onAction="#scene_login" layoutX="98.0" layoutY="680.0" text="I already have an account" underline="true">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+   </children>
+</AnchorPane>
+
