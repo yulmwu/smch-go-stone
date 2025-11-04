@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:controller="application.Controller" fx:id="scene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="400.0" style="-fx-background-color: #FAFAFA;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane onMouseDragged="#dragged" onMousePressed="#pressed" prefHeight="50.0" prefWidth="400.0" style="-fx-background-color: #E6E6E6; -fx-border-color: #aaaaaa;">
+         <children>
+            <HBox>
+               <children>
+                  <Circle fill="#ff6a6a" onMouseClicked="#close" radius="9.0" stroke="#ae2828" strokeType="INSIDE">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
+                  <Circle fill="#e8d048" onMouseClicked="#min" radius="9.0" stroke="#c9a324" strokeType="INSIDE">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
+                  <Circle fill="#5cda69" onMouseClicked="#max" radius="9.0" stroke="#6fbc27" strokeType="INSIDE">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Circle>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <Text layoutX="151.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GO" textAlignment="CENTER">
+         <font>
+            <Font size="65.0" />
+         </font>
+      </Text>
+      <Text layoutX="87.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STONE" textAlignment="CENTER">
+         <font>
+            <Font size="70.0" />
+         </font>
+      </Text>
+      <JFXTextField fx:id="findPwd_id" focusColor="#69a7fa" labelFloat="true" layoutX="76.0" layoutY="280.0" prefHeight="35.0" prefWidth="250.0" promptText=" ID" unFocusColor="#aaaaaa">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="findPwd_email" focusColor="#ddc775" labelFloat="true" layoutX="76.0" layoutY="340.0" prefHeight="35.0" prefWidth="250.0" promptText=" E-mail" unFocusColor="#aaaaaa">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton fx:id="findPwd_find" onAction="#findPwd_find" layoutX="75.0" layoutY="390.0" prefHeight="50.0" prefWidth="250.0" ripplerFill="#3cf093" style="-fx-border-color: #aaaaaa;" text="Find">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField fx:id="findPwd_realName" disable="true" editable="false" focusColor="#79b26b" labelFloat="true" layoutX="75.0" layoutY="460.0" prefHeight="35.0" prefWidth="250.0" promptText=" Real name" unFocusColor="#aaaaaa">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </JFXTextField>
+      <JFXPasswordField fx:id="findPwd_newPassword" disable="true" focusColor="#c65a27" labelFloat="true" layoutX="75.0" layoutY="520.0" prefHeight="35.0" prefWidth="250.0" promptText=" New Password" unFocusColor="#aaaaaa">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </JFXPasswordField>
+      <JFXPasswordField fx:id="findPwd_newPasswordAgain" disable="true" focusColor="#c65a27" labelFloat="true" layoutX="75.0" layoutY="580.0" prefHeight="35.0" prefWidth="250.0" promptText=" New Password again" unFocusColor="#aaaaaa">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </JFXPasswordField>
+      <JFXButton fx:id="findPwd_submit" onAction="#findPwd_submit" disable="true" layoutX="75.0" layoutY="640.0" prefHeight="50.0" prefWidth="250.0" ripplerFill="#3cf093" style="-fx-border-color: #aaaaaa;" text="Submit">
+         <font>
+            <Font size="13.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton onAction="#scene_login" layoutX="124.0" layoutY="700.0" text="I remember my account" underline="true" />
+   </children>
+</AnchorPane>
